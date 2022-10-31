@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //被这个Symbol修饰的变量是独一无二的，主要用来定义对象的私有变量
+    // Symbol() 函数不可以 new
+    let name1 = Symbol('张三');
+    let name2 = Symbol('张三');
+    console.log(name1 == name2) //false
+    //如果用Symbol修饰对象中的变量，取值时一定要用[变量名]
+    let s1 = Symbol('S1')
+    console.log(s1);
+    let obj = {
+        [s1]: '哈哈哈'
+    }
+    console.log(obj)
+    console.log(obj.s1) //访问不到
+    console.log(obj[s1]) //正确的访问方式
+    console.log(Object.keys(obj)) //取不到
+</script>
+</html>

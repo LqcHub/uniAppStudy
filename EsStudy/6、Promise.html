@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    let flag = 1;
+    let myPromise = new Promise(function (success, fail) {
+        setTimeout(() => {
+            if (flag == 1) {
+                success("成功了")
+            } else {
+                fail("失败了")
+            }
+        }, 1000)
+    })
+    myPromise.then((res) => {
+        console.log(res)
+    }, (error) => {
+        console.log(error)
+    })
+
+    //=======可以用下面这种方法来给Promise传数据======
+    function f(param) {
+        return new Promise(function (success, fail) {
+            setTimeout(() => {
+                if (param == 1) {
+                    success("成功了")
+                } else {
+                    fail("失败了")
+                }
+            }, 1000)
+        })
+    }
+
+    f(2).then((res) => {
+        console.log(res)
+    }, (error) => {
+        console.log(error)
+    })
+</script>
+</html>

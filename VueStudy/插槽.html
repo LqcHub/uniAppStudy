@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <!--    这个div里的代码并不显示，它的子元素顺序随意。
+    它的实际作用:
+    1、作为vue实例的模板
+    2、作为自定义控件和vue实例之间的媒介,vue实例和自定义组件相互之间无法访问-->
+    <my-div>
+        <my-items slot="slot-items" v-for="item in items" :item="item"></my-items>
+        <my-title slot="slot-title" v-bind:title="title"></my-title>
+    </my-div>
+</div>
+<script>
+    Vue.component("my-div",
+        {
+            template:
+                '<div>\
+                <slot name ="slot-title"></slot>\
+                <ul>这是ul\
+                <slot name ="slot-items"></slot>\
+                </ul>\
+                </div>'
+        }
+    )
+    Vue.component("my-title", {
+        props: ['title'],
+        template: '<div>{{title}}</div>>'
+    })
+    Vue.component('my-items', {
+        props: ['item'],
+        template: '<li>{{item}}</li>'
+    })
+    let vm = new Vue({
+        el: "#root",
+        data: {
+            title: "我的标题",
+            items: ['a', 'b', 'c']
+        }
+    })
+</script>
+</body>
+</html>

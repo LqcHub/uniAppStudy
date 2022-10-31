@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <!--    将item绑定到myc-->
+    <mycomponent v-for="item in items" v-bind:myc="item"></mycomponent>
+</div>
+</body>
+<script>
+
+    Vue.component("mycomponent", {
+        props: ['myc'],  //定义组件属性
+        template:
+            '<li>{{myc}}</li>',
+    });
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            items: ["AAAAA", "BBBBB", "CCCCCC"]
+        }
+    });
+</script>
+</html>

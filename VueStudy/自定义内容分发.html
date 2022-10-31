@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <my-div>
+        <my-title slot="slot-title" v-bind:title="title"></my-title>
+        <my-items slot="slot-items" v-for="(item,index) in items"
+                  :item="item" :index="index" v-on:rem="removeItems(index)"></my-items>
+
+    </my-div>
+</div>
+<script>
+    Vue.component("my-div",
+        {
+            template:
+                '<div>\
+                <slot name ="slot-title"></slot>\
+                <ul>这是ul\
+                <slot name ="slot-items"></slot>\
+                </ul>\
+                </div>'
+        }
+    )
+    Vue.component("my-title", {
+        props: ["title"],
+        template: '<div>{{title}}</div>'
+    })
+    Vue.component('my-items', {
+        props: ['item', 'index'],
+        template: '<li>{{index}} ==== {{item}} &emsp; <button @click="remove(index)">删除</button></li>',
+        methods: {
+            remove: function (index) {
+                this.$emit('rem', index) //主要是这个函数
+            }
+        }
+    })
+    let vm = new Vue({
+        el: "#root",
+        data: {
+            title: "我的标题",
+            items: ['a', 'b', 'c']
+        },
+        methods: {
+            removeItems: function (index) {
+                alert("删除了：" + this.items[index])
+                this.items.splice(index, 1);
+            }
+        }
+    })
+</script>
+</body>
+</html>

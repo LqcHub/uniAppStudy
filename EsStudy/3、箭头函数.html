@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //常规函数写法
+    function sum(a, b) {
+        return a + b;
+    }
+
+    console.log(sum(2, 4));
+    //箭头函数写法
+    let sum2 = (a, b) => {
+        return a + b;
+    }
+    console.log(sum2(2, 4));
+    //只有一个参数的简写:
+    let sum3 = a => {
+        return a
+    }
+    console.log(sum3(6))
+    //只有一个返回语句时可去掉
+    let sum4 = (a,b)=> a+b
+    console.log(sum4(2,4))
+</script>
+</html>

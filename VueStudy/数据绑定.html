@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-model="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <label> 这是单向绑定
+        <input type="text"  v-bind:value="name">
+    </label>
+    <hr>
+    <label> 这是双向绑定
+        <input type="text" v-model:value="name">
+  </label>
+</div>
+<script>
+    let vm = new Vue({
+        el:" #root",
+        data:{
+        name:'张三'
+        }
+        })
+        </script>
+</body>
+</html>

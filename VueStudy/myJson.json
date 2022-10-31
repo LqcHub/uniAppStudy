@@ -1,0 +1,10 @@
+{
+  "firstName": "Brett",
+  "lastName": "McLaughlin",
+  "email": "brett@newInstance.com",
+  "authors": {
+    "firstName": "Isaac",
+    "lastName": "Asimov",
+    "genre": "science fiction"
+  }
+}

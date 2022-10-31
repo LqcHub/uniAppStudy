@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js">
+    </script>
+</head>
+<body>
+<div id="root">
+    <h1>methods带()使用 : {{currentTime1()}}</h1>
+    <h1>computed: {{currentTime2}}</h1>
+</div>
+<script>
+    let vm = new Vue({
+        el: "#root",
+        data: {
+            message: 'hello'
+        },
+        // methods 和computed 里的东西不能重名，重名后只会调用 methods中的方法
+        methods: {
+            currentTime1: function () {
+
+                return Date.now();
+            }
+        },
+        computed: {
+            currentTime2: function () {
+                this.message; // 这个值改变才会重新计算值
+                return Date.now();
+            }
+        }
+    })
+</script>
+</body>
+</html>

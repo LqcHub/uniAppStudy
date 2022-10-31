@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+
+<script>
+    //剩余参数
+    f(1, 2, 3, 4, 5);
+
+    function f(a, b, ...arg) {
+        console.log(arg) // [3, 4, 5]
+    }
+    /*=================================================================*/
+    let arr = [5, 20, 95, 4, 61, 5151, 85];
+    console.log(arr);  //结果： [5, 20, 95, 4, 61, 5151, 85]
+    //扩展运算符
+    console.log(...arr);  //结果：5 20 95 4 61 5151 85
+
+</script>
+</html>

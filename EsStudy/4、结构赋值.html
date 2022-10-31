@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 对象解构时的变量名必须和要被解构的变量名一致，并且只能解构一次，多次就会报错
+    console.log("===============不完全解构================================");
+    let obj = {a: "哈哈哈", b: 12, c: [112, 4324, 432]}
+    let {a,c} = obj;
+    console.log(a);
+    console.log("===============完全结构===============================");
+    //完全结构
+    let obj2 = {d: "哈哈哈", e: 12, f: [112, 4324, 432]}
+    let {d, e, f} = obj2;
+    console.log(d);
+    console.log(e);
+    console.log(f);
+    console.log("===============嵌套解构===============================");
+    let array = ['哈哈',["嘿嘿1","嘿嘿2","嘿嘿3"],'213']
+    let [z,[o,p,q],m] = array;
+    console.log(z)
+    console.log(o)
+    console.log(p)
+    console.log(q)
+    console.log(m)
+</script>
+</html>

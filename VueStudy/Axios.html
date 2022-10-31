@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="vue.js">
+    </script>
+</head>
+<body>
+<div id="root">
+    姓名：<h1>{{myJson.firstName}}</h1>
+    genre: <h1>{{myJson.authors.genre}}</h1>
+</div>
+<script>
+    let vm = new Vue({
+        el: "#root",
+        data() {
+            return {
+                myJson:
+                    {
+                        firstName: null,
+                        lastName: null,
+                        authors: {
+                            genre: null
+                        }
+                    }
+            }
+        },
+        mounted() {
+            axios.get('./myJson.json').then(response => (this.myJson = response.data))
+        }
+    })
+</script>
+</body>
+</html>
